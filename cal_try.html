@@ -1,0 +1,67 @@
+<html>
+<head>
+	<link rel="stylesheet" href="cal_try.css">
+</head>
+<body id="bg">
+    <center>
+	<div class = title ><b><h1>Calculator</h1></b></div>
+	<table class="box">
+		<tr>
+			<td colspan="3"><input type="text" id="result"/></td>
+			<td><input type="button" value="Clear" class="clear" onclick="del()"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="1" class="button1" onclick="dis('1')"/> </td>
+			<td><input type="button" value="2" class="button2" onclick="dis('2')"/> </td>
+			<td><input type="button" value="3" class="button3" onclick="dis('3')"/> </td>
+			<td><input type="button" value="/" class="buttonhyphen" onclick="dis('/')"/> </td>
+        </tr>
+		<tr>
+			<td><input type="button" value="4" class="button4" onclick="dis('4')"/> </td>
+			<td><input type="button" value="5" class="button5" onclick="dis('5')"/> </td>
+			<td><input type="button" value="6" class="button6" onclick="dis('6')"/> </td>
+			<td><input type="button" value="-" class="buttonminus" onclick="dis('-')"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="7" class="button7" onclick="dis('7')"/> </td>
+			<td><input type="button" value="8" class="button8" onclick="dis('8')"/> </td>
+			<td><input type="button" value="9" class="button9" onclick="dis('9')"/> </td>
+			<td><input type="button" value="+" class="buttonplus" onclick="dis('+')"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="." class="buttondot" onclick="dis('.')"/> </td>
+			<td><input type="button" value="0" class="buttonzero" onclick="dis('0')"/> </td>
+			<td><input type="button" value="=" class="buttonequal" onclick="solve()"/> </td>
+			<td><input type="button" value="AC" class="buttonem" onclick="clr()"/> </td>
+
+		</tr>
+	</table>
+</center>
+<script>
+
+    function dis(val)
+    {
+        document.getElementById("result").value+=val
+    }
+    function solve()
+    {
+    try{
+        let x = document.getElementById("result").value
+        let y = eval(x)
+        document.getElementById("result").value = y
+    }
+    catch {
+        document.getElementById("result").value="Error"
+    }
+}
+    function clr()
+    {
+        document.getElementById("result").value = ""
+    }
+    function del(){
+        var exp=document.getElementById("result").value
+        document.getElementById("result").value=exp.substring(0,exp.length-1);
+    }
+</script>
+</body>
+</html>
